@@ -1,0 +1,106 @@
+{
+  "$schema": "https://demotime.show/demo-time.schema.json",
+  "version": 3,
+  "title": "GitHub Copilot für Delphi: Workshop",
+  "description": "Vier Stunden in zehn manuell gestarteten Szenen; keine Datei wird durch Demo Time verändert.",
+  "timer": 240,
+  "scenes": [
+    {
+      "id": "setup",
+      "title": "0 · Arbeitsplatz vorbereiten (15 Min.)",
+      "description": "Voraussetzungen und Testlauf gemeinsam prüfen; Teilnehmer arbeiten im eigenen Checkout.",
+      "notes": { "path": ".demo/talk-plan.md" },
+      "moves": [
+        { "action": "open", "path": "CatalogDemo.lpr" },
+        { "action": "open", "path": "exercises/00-setup.md" }
+      ]
+    },
+    {
+      "id": "completions",
+      "title": "1 · Completions (30 Min.)",
+      "description": "FormatSessionCaption und zwei Tests selbst mit Inline-Vorschlägen erarbeiten.",
+      "notes": { "path": ".demo/talk-plan.md" },
+      "moves": [
+        { "action": "open", "path": "tests/CatalogTests.lpr" },
+        { "action": "open", "path": "src/SessionCatalog.pas" },
+        { "action": "open", "path": "exercises/01-completions.md" }
+      ]
+    },
+    {
+      "id": "chat",
+      "title": "2 · Chat mit Kontext (35 Min.)",
+      "description": "FilterSessions erklären lassen, Aussagen prüfen und genau einen Randfall ergänzen.",
+      "notes": { "path": ".demo/talk-plan.md" },
+      "moves": [
+        { "action": "open", "path": "tests/CatalogTests.lpr" },
+        { "action": "open", "path": "src/SessionCatalog.pas" },
+        { "action": "open", "path": "exercises/02-chat.md" }
+      ]
+    },
+    {
+      "id": "pause-1",
+      "title": "Pause (10 Min.)",
+      "description": "Erste Pause nach Übung 2.",
+      "moves": [
+        { "action": "showInfoMessage", "message": "10 Minuten Pause. Danach: Agent Mode." }
+      ]
+    },
+    {
+      "id": "agent",
+      "title": "3 · Agent Mode (40 Min.)",
+      "description": "Backlog lesen, erst planen und nach Freigabe umsetzen; Tests und Diff prüfen.",
+      "notes": { "path": ".demo/talk-plan.md" },
+      "moves": [
+        { "action": "open", "path": "backlog/feature-request.md" },
+        { "action": "open", "path": "exercises/03-agent-mode.md" }
+      ]
+    },
+    {
+      "id": "instructions",
+      "title": "4 · Instructions und Prompt Files (35 Min.)",
+      "description": "Projektregeln und Review-Prompt bewusst erst jetzt selbst erstellen.",
+      "notes": { "path": ".demo/talk-plan.md" },
+      "moves": [
+        { "action": "open", "path": "src/SessionCatalog.pas" },
+        { "action": "open", "path": "exercises/04-instructions-prompts.md" }
+      ]
+    },
+    {
+      "id": "pause-2",
+      "title": "Pause (10 Min.)",
+      "description": "Zweite Pause nach Übung 4.",
+      "moves": [
+        { "action": "showInfoMessage", "message": "10 Minuten Pause. Danach: Skills und Custom Agents." }
+      ]
+    },
+    {
+      "id": "skills",
+      "title": "5 · Skills und Custom Agents (25 Min.)",
+      "description": "Eine kleine Review-Hilfe erstellen und Skill-Wissen von Agentenrechten abgrenzen.",
+      "notes": { "path": ".demo/talk-plan.md" },
+      "moves": [
+        { "action": "open", "path": "exercises/05-skills-agents.md" }
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "6 · Tools und MCP (20 Min.)",
+      "description": "Lokale Toolrechte und Datenfluss analysieren; Live-MCP ist optional.",
+      "notes": { "path": ".demo/talk-plan.md" },
+      "moves": [
+        { "action": "open", "path": "exercises/06-tools-mcp.md" }
+      ]
+    },
+    {
+      "id": "capstone",
+      "title": "7 · Capstone und Review (20 Min.)",
+      "description": "Ein kleines Track-Filter-Feature planen, prüfen und persönliche Notizen exportieren.",
+      "notes": { "path": ".demo/talk-plan.md" },
+      "moves": [
+        { "action": "open", "path": "tests/CatalogTests.lpr" },
+        { "action": "open", "path": "src/SessionCatalog.pas" },
+        { "action": "open", "path": "exercises/07-capstone.md" }
+      ]
+    }
+  ]
+}
