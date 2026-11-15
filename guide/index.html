@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<!--
+THESIS: Eine geführte Werkbank, keine automatisch erledigte Aufgabenliste.
+OWN-WORLD: Ruhige GitHub-nahe Navigation, blaue Aktionen, systemeigene Schrift.
+STORY: Aufgabe verstehen, in Pascal umsetzen, selbst prüfen und belegen.
+FIRST VIEWPORT: Lernpfad links; rechts Aufgabe und drei Arbeitsschritte.
+FORM: Vom benannten Governance-Workshop abgeleitete Lernführung, eigenständig umgesetzt.
+-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8fa">
+  <title>GitHub Copilot für Delphi · EKON 30</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Übungsinhalt</a>
+  <header class="topbar">
+    <div><strong>Copilot für Delphi</strong><span>EKON 30 · Harald Binkle &amp; Thomas Tomow</span></div>
+    <button id="export" disabled>Notizen exportieren</button>
+  </header>
+  <div id="error" role="alert" hidden></div>
+  <div class="workspace">
+    <aside aria-label="Workshop-Pfad">
+      <h2>Dein Workshop</h2>
+      <p>4 Stunden · Lazarus / Free Pascal</p>
+      <progress id="progress" max="8" value="0" aria-label="Selbst bestätigte Übungen"></progress>
+      <p id="count">Übungen werden geladen …</p>
+      <nav id="path" aria-label="Übungen"></nav>
+      <p class="aside-note">Zwei Pausen à 10 Minuten nach Chat und Instructions. Du bestimmst dein Tempo.</p>
+    </aside>
+    <main id="main" tabindex="-1">
+      <h1>Dein Workshop wird geladen …</h1>
+      <p>Verstehen. In Pascal umsetzen. Selbst prüfen.</p>
+    </main>
+  </div>
+  <footer>
+    <span id="save-status" role="status">Fortschritt bleibt lokal in diesem Checkout.</span>
+    <span>Abhaken ist Selbstauskunft, kein automatischer Testnachweis.</span>
+  </footer>
+</body>
+</html>

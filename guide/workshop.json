@@ -1,0 +1,13 @@
+{
+  "title": "GitHub Copilot für Delphi",
+  "exercises": [
+    { "id": "setup", "title": "Arbeitsplatz vorbereiten", "minutes": 15, "file": "00-setup.md" },
+    { "id": "completions", "title": "Completions", "minutes": 30, "file": "01-completions.md" },
+    { "id": "chat", "title": "Chat mit Kontext", "minutes": 35, "file": "02-chat.md" },
+    { "id": "agent", "title": "Agent Mode", "minutes": 40, "file": "03-agent-mode.md" },
+    { "id": "instructions", "title": "Instructions & Prompts", "minutes": 35, "file": "04-instructions-prompts.md" },
+    { "id": "skills", "title": "Skills & Custom Agents", "minutes": 25, "file": "05-skills-agents.md" },
+    { "id": "tools", "title": "Tools & MCP", "minutes": 20, "file": "06-tools-mcp.md" },
+    { "id": "capstone", "title": "Capstone & Review", "minutes": 20, "file": "07-capstone.md" }
+  ]
+}

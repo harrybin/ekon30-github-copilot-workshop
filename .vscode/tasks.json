@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Workshop: Guide starten",
+      "type": "process",
+      "command": "node",
+      "args": ["guide/server.mjs"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Pascal-Tests",
+      "type": "process",
+      "command": "node",
+      "args": ["scripts/pascal.mjs", "test"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Lazarus-Build",
+      "type": "process",
+      "command": "node",
+      "args": ["scripts/pascal.mjs", "build"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}

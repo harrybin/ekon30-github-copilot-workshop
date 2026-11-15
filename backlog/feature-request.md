@@ -1,20 +1,32 @@
-# Feature brief: sessions by track
+# Feature: Sessions pro Track zählen
 
-## Goal
+## Ziel
 
-Readers can get a count of sessions for each track without changing the source data.
+CountSessionsByTrack zählt Sessions je Track ohne die Eingabe zu verändern.
+Die Funktion wird im interface- und implementation-Teil von src/SessionCatalog.pas ergänzt.
 
-## Acceptance criteria
+```pascal
+type
+  TTrackCount = record
+    Track: string;
+    Count: Integer;
+  end;
+  TTrackCounts = array of TTrackCount;
 
-- Add an exported `countSessionsByTrack(sessions)` function in `src/catalog.js`.
-- Return a plain object whose keys are track names and values are counts.
-- Return an empty object for an empty input.
-- Do not mutate the supplied array or session objects.
-- Add tests for multiple tracks, an empty list, and input immutability.
-- Run `npm test` and report the changed files and test result.
+function CountSessionsByTrack(const Sessions: TSessions): TTrackCounts;
+```
 
-## Out of scope
+## Akzeptanzkriterien
 
-- UI changes
-- Sorting or renaming track labels
-- Adding third-party dependencies
+- Ergebnis: ein Eintrag pro exakt gleichem Track, in Reihenfolge seines ersten Auftretens.
+- Die Beispieldaten ergeben KI = 2 und Delphi = 1.
+- KI und ki sind unterschiedliche Tracks; ein leerer Track ist ein eigener Schlüssel.
+- Eine leere Eingabe liefert ein leeres dynamisches Array.
+- Sessions und deren Felder bleiben unverändert.
+- Tests für mehrere und wiederholte Tracks, Groß-/Kleinschreibung, leeren Track, leere Eingabe und unveränderte Eingabe ergänzen und tatsächlich aufrufen.
+- npm test ausführen; geänderte Dateien, Testausgabe und offene Punkte nennen.
+
+## Nicht-Ziele
+
+Keine GUI, Sortierung, neuen Abhängigkeiten oder Delphi-exklusiven Bibliotheken.
+Guide, Buildskripte und bestehende Test-Erwartungen unverändert lassen.

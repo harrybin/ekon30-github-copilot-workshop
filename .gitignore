@@ -1,3 +1,11 @@
 node_modules/
 .env
 .DS_Store
+bin/
+lib/
+.workshop/
+*.compiled
+*.lps
+*.bak
+*.ppu
+*.o

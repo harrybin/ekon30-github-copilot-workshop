@@ -3,8 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test",
-    "test:watch": "node --test --watch"
+    "start": "node scripts/pascal.mjs run",
+    "build": "node scripts/pascal.mjs build",
+    "test": "node scripts/pascal.mjs test",
+    "test:fpc": "node scripts/pascal.mjs test --fpc",
+    "guide": "node guide/server.mjs",
+    "test:guide": "node --test guide/tests"
   },
   "engines": {
     "node": ">=24"
