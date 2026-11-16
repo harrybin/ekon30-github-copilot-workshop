@@ -36,15 +36,15 @@ npm run guide
 
 `npm test` baut das Testprojekt mit `lazbuild` und führt zunächst **14 Verhaltenschecks** aus. `npm start` baut und startet die Pascal-Konsolenanwendung. `npm run guide` startet einen lokalen Server und gibt eine vollständige URL inklusive Zugriffstoken aus. **Diese vollständige URL öffnen**, nicht nur die Portnummer.
 
-## Geführte Oberfläche neben dem Code
+## Geführte Durchführung in Copilot Canvas
 
-**VS Code:** Workshop-Verzeichnis als eigenen Ordner öffnen. Über **Tasks: Run Task → Workshop: Guide starten** den Server starten, dann **Simple Browser: Show** in der Befehlspalette wählen und die ausgegebene vollständige URL einfügen. Den Browser neben der Pascal-Unit anordnen. Alternativ dieselbe URL im normalen Browser öffnen. **Tasks: Run Test Task** führt die Pascal-Tests aus.
+Das Repository enthält eine projektbezogene Canvas-Extension unter `.github/extensions/copilot-delphi-workshop/`. In der GitHub Copilot App das Repository als Projekt öffnen und den **Copilot-Workshop · Delphi**-Canvas verwenden. Die Oberfläche führt durch dieselben Markdown-Übungen unter `exercises/`; sie dupliziert weder Aufgaben noch Checklisten. Optional kann der Canvas mit einer `exerciseId` bei einer bestimmten Übung geöffnet werden.
 
-**Copilot App:** Im lokalen Checkout arbeiten, `npm run guide` im Terminal starten und die ausgegebene URL im Browser-Arbeitsbereich öffnen, sofern dieser in der App-Version verfügbar ist; andernfalls im Systembrowser. Ein Server in einer Remote-Session ist nicht unter `127.0.0.1` des eigenen Rechners erreichbar. Dafür den Guide lokal starten.
+Die Extension verwendet die bestehende, loopback-gebundene Guide-Oberfläche als Canvas-Renderer. Persönliche Checklisten und Nachweise bleiben im Checkout unter `.workshop/progress.json` erhalten, auch wenn Canvas oder Extension neu geladen werden. Die lesende Canvas-Aktion `get_workshop_status` teilt nur Übungsstatus und Zähler mit Copilot, nicht die persönlichen Notizen. Fortschritt ist pro Checkout lokal; er wird nicht synchronisiert.
 
-**Wichtige Abgrenzung:** Dies ist ein portabler Browser-Guide, **keine registrierte native Copilot-Canvas-Erweiterung** wie im Vorbild. Er benötigt weder SDK-Installation noch eine VS-Code-Extension. Agenten können den Guide nicht über Canvas-Actions verändern. Prompts werden bewusst kopiert; der Guide führt keine Shellbefehle aus und erteilt keine Toolrechte.
+**VS Code und Browser-Fallback:** VS Code kann den gleichen lokalen Guide weiter verwenden. `npm run guide` startet den Browser-Fallback und druckt die vollständige URL mit Zugriffstoken; diese URL im Simple Browser oder einem normalen Browser öffnen. In Remote-Sessions ist der Loopback-Server nur aus der jeweiligen Session erreichbar, nicht automatisch vom lokalen Rechner. **Tasks: Run Test Task** führt die Pascal-Tests aus.
 
-Die Führung bietet:
+Canvas und Browser-Fallback bieten:
 
 - Acht Übungen mit den Schritten **Verstehen → Umsetzen → Prüfen**.
 - Kopierbare Copilot-Prompts und aufklappbare Hinweise.
@@ -76,9 +76,10 @@ Die Markdown-Übungen unter [exercises/](exercises/README.md) sind die Quelle de
 CatalogDemo.lpi/.lpr      Lazarus-Konsolenprojekt
 src/                     SessionData und SessionCatalog (Object Pascal)
 tests/CatalogTests.*     Lazarus-Testprojekt, ohne zusätzliche Testbibliothek
-exercises/               Aufgaben, Prompts, Hinweise und Checkpoints
+exercises/               Gemeinsame Aufgaben, Prompts, Hinweise und Checkpoints
 backlog/                 Akzeptanzkriterien für das Agent-Feature
-guide/                   Browser-Führung; keine Teilnehmer-Codeaufgabe
+guide/                   Gemeinsamer Renderer und Browser-Fallback
+.github/extensions/       Projektbezogene Copilot-Canvas-Extension
 scripts/pascal.mjs        plattformübergreifende Lazarus-/FPC-Aufrufe
 .vscode/tasks.json       Guide, Build und Tests
 ```
@@ -96,7 +97,7 @@ Der Code nutzt den FPC-Delphi-Modus, dynamische Arrays und RTL-Funktionen statt 
 
 ## Sicher arbeiten
 
-Keine Zugangsdaten oder vertraulichen Projektinhalte in Prompts, Notizen oder Exporte eintragen. Der Guide bindet ausschließlich an Loopback, schützt API-Zugriffe per Token und startet keine Befehle. Compiler- und Copilot-Aufrufe laufen bewusst im eigenen Terminal mit den dort erteilten Rechten. Änderungen lesen, selbst testen und den Diff prüfen.
+Keine Zugangsdaten oder vertraulichen Projektinhalte in Prompts, Notizen oder Exporte eintragen. Canvas und Browser-Fallback binden ausschließlich an Loopback, schützen API-Zugriffe per Token und starten keine Befehle. Compiler- und Copilot-Aufrufe laufen bewusst im eigenen Terminal mit den dort erteilten Rechten. Änderungen lesen, selbst testen und den Diff prüfen.
 
 Bei beschädigtem oder nach Inhaltsänderungen veraltetem Fortschritt stoppt der Guide mit einer Fehlermeldung. `.workshop/progress.json` zuerst sichern; für einen neuen Versuch die gesicherte Datei manuell umbenennen. Keine automatischen Resets.
 
