@@ -8,7 +8,7 @@
     "test": "node scripts/pascal.mjs test",
     "test:fpc": "node scripts/pascal.mjs test --fpc",
     "guide": "node guide/server.mjs",
-    "test:guide": "node --test guide/tests"
+    "test:guide": "node --test guide/tests/workshop.test.mjs"
   },
   "engines": {
     "node": ">=24"

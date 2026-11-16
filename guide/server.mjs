@@ -138,7 +138,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     const { server, url } = await startGuide()
     console.log(`\nWorkshop-Guide: ${url}\n`)
     console.log('VS Code: Simple Browser: Show → vollständige URL einfügen.')
-    console.log('Lokaler Guide, keine native Copilot-Canvas-Erweiterung. Stoppen: Strg+C.')
+    console.log('Browser-Fallback für den Copilot-Workshop-Canvas. Stoppen: Strg+C.')
     for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => server.close())
   } catch (error) {
     console.error(`Guide konnte nicht starten: ${error.message}`)

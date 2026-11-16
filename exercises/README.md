@@ -1,6 +1,8 @@
 # Geführter Workshop
 
-Mit npm run guide die lokale Workshop-Oberfläche starten und die ausgegebene URL öffnen. Die Markdown-Dateien in diesem Ordner sind die gemeinsame Quelle für Canvas und Offline-Leseweg.
+Für die Durchführung in der GitHub Copilot App den projektbezogenen **Copilot-Workshop · Delphi**-Canvas öffnen. Die Markdown-Dateien in diesem Ordner sind die gemeinsame Quelle für Canvas, Browser-Fallback und Offline-Leseweg.
+
+Für den Browser-Fallback `npm run guide` starten und die vollständige URL aus dem Terminal öffnen. Der Canvas und der Browser-Fallback verwenden denselben lokalen Fortschritt in `.workshop/progress.json`.
 
 0. [Setup](00-setup.md) · 15 Min.
 1. [Completions](01-completions.md) · 30 Min.
