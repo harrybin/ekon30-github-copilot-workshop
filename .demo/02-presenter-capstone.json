@@ -1,0 +1,40 @@
+{
+  "$schema": "https://demotime.show/demo-time.schema.json",
+  "version": 3,
+  "title": "Presenter: echter Copilot-Auftrag",
+  "description": "Manueller Live-Lauf des Capstones in einem separaten Presenter-Checkout; Copilot und Tests werden nicht von Demo Time gestartet.",
+  "scenes": [
+    {
+      "id": "prepare-presenter",
+      "title": "Presenter-Checkout vorbereiten",
+      "description": "Nur in einem separaten, entbehrlichen Presenter-Checkout öffnen; Teilnehmer-Checkouts bleiben unberührt.",
+      "notes": { "path": ".demo/presenter-capstone.md" },
+      "moves": [
+        { "action": "open", "path": ".demo/presenter-capstone.md" },
+        { "action": "open", "path": "README.md" }
+      ]
+    },
+    {
+      "id": "real-copilot-request",
+      "title": "Echten Copilot-Auftrag stellen",
+      "description": "Capstone-Prompt in Copilot Agent starten, den Plan prüfen und nur die vereinbarten Pascal-Dateien freigeben.",
+      "notes": { "path": ".demo/presenter-capstone.md" },
+      "moves": [
+        { "action": "open", "path": "exercises/07-capstone.md" },
+        { "action": "open", "path": "src/SessionCatalog.pas" },
+        { "action": "open", "path": "tests/CatalogTests.lpr" }
+      ]
+    },
+    {
+      "id": "inspect-and-test",
+      "title": "Echtes Ergebnis prüfen",
+      "description": "Tatsächlichen Copilot-Diff kontrollieren und die verfügbaren Pascal-Tests im Presenter-Terminal ausführen.",
+      "notes": { "path": ".demo/presenter-capstone.md" },
+      "moves": [
+        { "action": "open", "path": "src/SessionCatalog.pas" },
+        { "action": "open", "path": "tests/CatalogTests.lpr" },
+        { "action": "open", "path": ".demo/presenter-capstone.md" }
+      ]
+    }
+  ]
+}

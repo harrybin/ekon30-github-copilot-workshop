@@ -8,18 +8,19 @@ Node.js startet nur die Workshop-Führung und die Build-Befehle. Es gibt keine J
 
 ## Umsetzen
 
-1. Lazarus inklusive Free Pascal, Git, Node.js 24+ und VS Code installieren. Mit GitHub Copilot anmelden.
-2. Im Terminal fpc -iV und lazbuild --version prüfen. Unter Windows den Lazarus-Ordner und den FPC-bin-Ordner der Installation zu PATH hinzufügen; danach VS Code neu starten.
-3. Das Workshop-Verzeichnis als eigenen VS-Code-Ordner öffnen.
-4. Die folgenden Befehle im Workshop-Verzeichnis ausführen.
+1. **Windows (empfohlen):** Lazarus inklusive Free Pascal, Git, Node.js 24+ und VS Code installieren. Mit GitHub Copilot anmelden. Für den VS-Code-Demolauf zusätzlich `eliostruyf.vscode-demo-time` über die Extensions-Ansicht installieren.
+2. In PowerShell `Get-Command fpc,lazbuild`, `fpc -iV` und `lazbuild --version` ausführen. Falls die Befehle fehlen, Lazarus- und FPC-bin-Ordner zum Benutzer-PATH hinzufügen und VS Code neu starten.
+3. **macOS:** Die offiziellen Lazarus-/FPC-Pakete sowie Git, Node.js 24+ und VS Code installieren. Im Terminal `command -v fpc lazbuild`, `fpc -iV` und `lazbuild --version` ausführen. Für den VS-Code-Demolauf zusätzlich `eliostruyf.vscode-demo-time` über die Extensions-Ansicht installieren.
+4. Das Workshop-Verzeichnis als eigenen VS-Code-Ordner öffnen.
+5. Die folgenden Befehle im Workshop-Verzeichnis in PowerShell oder im macOS-Terminal ausführen.
 
-```bash
+```powershell
 npm test
 npm start
 ```
 
-5. CatalogDemo.lpi in Lazarus öffnen und ebenfalls bauen. Die Anwendung benötigt keine grafische Oberfläche.
-6. Im Guide die Prüfkriterien abhaken und den eigenen Nachweis speichern. Nicht bestandene Schritte nicht als erledigt markieren.
+6. `CatalogDemo.lpi` in Lazarus öffnen und ebenfalls bauen. Die Anwendung benötigt keine grafische Oberfläche.
+7. Im Guide die Prüfkriterien abhaken und den eigenen Nachweis speichern. Nicht bestandene Schritte nicht als erledigt markieren.
 
 ## Prompt
 
@@ -37,4 +38,4 @@ CatalogDemo.lpr, src/SessionData.pas und src/SessionCatalog.pas.
 
 ## Tipp
 
-Fehlt lazbuild, zuerst die Lazarus-Installation und PATH prüfen. npm run test:fpc prüft zusätzlich den direkten FPC-Weg, ersetzt aber nicht den Lazarus-Setup-Checkpoint. Unter Debian/Ubuntu benötigen wir fp-compiler, lcl-utils und lazarus-src; für die IDE zusätzlich Lazarus installieren.
+Fehlt `lazbuild`, zuerst die Lazarus-Installation und den PATH prüfen. `npm run test:fpc` prüft zusätzlich den direkten FPC-Weg, ersetzt aber nicht den Lazarus-Setup-Checkpoint. Unter macOS die offiziellen Lazarus-/FPC-Pakete verwenden und sicherstellen, dass beide Programme im PATH liegen.

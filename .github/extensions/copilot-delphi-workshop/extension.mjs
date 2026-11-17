@@ -35,14 +35,12 @@ const workshopCanvas = createCanvas({
                 const exercises = workshop.exercises.map((exercise) => ({
                     id: exercise.id,
                     title: exercise.title,
-                    minutes: exercise.minutes,
                     complete: isComplete(progress.exercises[exercise.id]),
                 }));
                 return {
                     title: workshop.title,
                     progressPath: ".workshop/progress.json",
                     revision: progress.revision,
-                    totalMinutes: workshop.exercises.reduce((total, exercise) => total + exercise.minutes, 0),
                     completedExercises: exercises.filter((exercise) => exercise.complete).length,
                     totalExercises: exercises.length,
                     exercises,

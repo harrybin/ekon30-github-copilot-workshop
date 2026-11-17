@@ -136,7 +136,7 @@ function render() {
   updatePath()
   main.replaceChildren()
   main.append(element('h1', selected.heading))
-  main.append(element('p', `${selected.minutes} Minuten · ${selected.file}`, 'meta'))
+  main.append(element('p', selected.file, 'meta'))
   const tabs = element('nav', undefined, 'stages')
   tabs.setAttribute('aria-label', 'Arbeitsschritte')
   for (const name of stages) {

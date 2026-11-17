@@ -2,13 +2,13 @@
 
 ## Verstehen
 
-Instructions beschreiben dauerhafte Projektregeln. Ein Prompt File startet bewusst eine wiederkehrende Aufgabe. Die Übung legt die Regeln erst jetzt an, damit der Unterschied vorher/nachher sichtbar wird.
+Instructions beschreiben dauerhafte Projektregeln. Ein Prompt File startet bewusst eine wiederkehrende Aufgabe. Die `AGENTS.md` im Projektstamm enthält bereits allgemeine Projektregeln; diese Übung ergänzt eine neue Regel und vergleicht ihre Wirkung.
 
 ## Umsetzen
 
-1. Drei überprüfbare Regeln aus den Pascal-Units und dem Build ableiten.
-2. .github/copilot-instructions.md anlegen: Delphi-kompatibler Code, keine Mutation der Eingabearrays, npm test nach Pascal-Änderungen.
-3. Denselben kleinen Änderungsauftrag vor und nach den Instructions vergleichen.
+1. Die vorhandene `AGENTS.md` lesen und eine zusätzliche, darin noch nicht enthaltene Regel aus den Pascal-Units oder dem Build ableiten.
+2. Einen kleinen Änderungsauftrag ohne diese neue Regel ausführen und die Beobachtung festhalten.
+3. Die neue Regel in `AGENTS.md` ergänzen, denselben Auftrag wiederholen und die Ergebnisse vergleichen.
 4. .github/prompts/test-review.prompt.md mit YAML-Frontmatter description und einem Review-Auftrag erstellen.
 5. In VS Code bewusst aufrufen. In anderen Copilot-Oberflächen bei fehlender Prompt-File-Unterstützung den Inhalt in den Chat kopieren.
 
@@ -24,7 +24,7 @@ Trenne dauerhaft geltende Regeln von dem manuell gestarteten Auftrag.
 
 ## Prüfen
 
-- Die Instructions enthalten drei konkrete, am Projekt prüfbare Regeln.
+- Die neue Instruction ist konkret, prüfbar und nicht bereits durch `AGENTS.md` abgedeckt.
 - Das Prompt File liegt unter .github/prompts/ und wurde bewusst gestartet.
 - Mein Vorher/Nachher-Nachweis zeigt, welche Regeln Copilot berücksichtigt hat.
 
