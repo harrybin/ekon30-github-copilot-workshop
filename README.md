@@ -15,6 +15,14 @@ Nach der Lazarus-Installation in PowerShell mit `Get-Command lazbuild,fpc`, `laz
 
 **macOS:** Die offiziellen Lazarus-/FPC-Pakete sowie Git, Node.js 24+ und VS Code installieren. Im Terminal sicherstellen, dass `lazbuild` und `fpc` im `PATH` liegen. Die folgenden npm- und Build-Befehle sind dieselben wie unter Windows.
 
+## VS-Code-Devcontainer (optional)
+
+Die Devcontainer-Konfiguration stellt Node.js 24, Git sowie Free Pascal und Lazarus-Buildwerkzeuge in einer Ubuntu-24.04-Umgebung bereit. Sie ist eine zusätzliche Option und ersetzt nicht die Windows- oder macOS-Einrichtung oben.
+
+Auf dem Host werden VS Code mit der Erweiterung **Dev Containers** (`ms-vscode-remote.remote-containers`), Docker Desktop mit laufender Linux-Container-Engine und ein GitHub-Konto mit Copilot-Zugriff benötigt. Diese Komponenten und Konten können nicht im Container installiert oder bereitgestellt werden. Vor dem Öffnen des Containers in VS Code bei GitHub anmelden und Copilot einrichten; die Erweiterungen im Container verwenden die VS-Code-Anmeldung. Keine Tokens oder anderen Zugangsdaten in den Container eintragen.
+
+Das Repository in VS Code öffnen und über die Befehlspalette **Dev Containers: Reopen in Container** wählen. Nach dem Erstellen stehen `npm test`, `npm start`, `npm run build`, `npm run test:fpc` und `npm run test:guide` im Container-Terminal zur Verfügung. `npm run guide` startet den Browser-Fallback; VS Code leitet Port **4317** weiter. Die vollständige URL mit Zugriffstoken aus der Terminalausgabe im Browser öffnen.
+
 ## Start
 
 Der Workshop-Starter liegt im öffentlichen Repository `harrybin/ekon30-github-copilot-workshop`.
@@ -88,6 +96,7 @@ Die Markdown-Übungen unter [exercises/](exercises/README.md) sind die Quelle de
 
 ```text
 CatalogDemo.lpi/.lpr      Lazarus-Konsolenprojekt
+.devcontainer/           Optionale VS-Code-Umgebung mit Node.js, Git und Lazarus/FPC
 src/                     SessionData und SessionCatalog (Object Pascal)
 tests/CatalogTests.*     Lazarus-Testprojekt, ohne zusätzliche Testbibliothek
 exercises/               Gemeinsame Aufgaben, Prompts, Hinweise und Checkpoints
