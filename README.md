@@ -1,32 +1,37 @@
 # GitHub Copilot von A bis Z — für Delphi-Entwickler:innen
 
-Vier Stunden mit Harald Binkle und Thomas Tomow. Wir erweitern einen kleinen Session-Katalog in **Delphi-kompatiblem Object Pascal**. Gebaut wird mit **Lazarus / Free Pascal**, ohne RAD-Studio-Lizenz. Alle Sessiondaten im Starter sind erfunden.
+Mit Harald Binkle und Thomas Tomow erweitern wir einen kleinen Session-Katalog in **Delphi-kompatiblem Object Pascal**. Gebaut wird mit **Lazarus / Free Pascal**, ohne RAD-Studio-Lizenz. Alle Sessiondaten im Starter sind erfunden.
 
 Die interaktive Workshop-Führung übernimmt das Lernprinzip von [Copilot Governance at Scale](https://github.com/octodemo/copilot-governance-at-scale): verstehen, umsetzen, prüfen und persönliche Beobachtungen festhalten. Die Implementierung und Inhalte hier sind eigenständig.
 
 ## Voraussetzungen
 
-- Lazarus 3+ inklusive Free Pascal 3.2.2+; `lazbuild` und `fpc` müssen im `PATH` sein.
-- Git und Node.js 24+ für den Guide und plattformübergreifende Build-Aufrufe. Keine npm-Pakete nötig.
+- **Windows (empfohlen):** Lazarus 3+ mit Free Pascal 3.2.2+, Git, Node.js 24+ und VS Code installieren. `lazbuild` und `fpc` müssen in `PATH` verfügbar sein.
+- Für den VS-Code-Demolauf zusätzlich die Erweiterung `eliostruyf.vscode-demo-time` über die Extensions-Ansicht installieren; Canvas und Browser-Fallback benötigen sie nicht.
 - VS Code mit angemeldetem GitHub Copilot; alternativ für Chat-/Agent-Übungen die GitHub Copilot App mit einem **lokalen** Checkout.
 - Code Completion üben wir in VS Code. Die Copilot App ersetzt dafür keinen Editor.
 
-Unter Windows Lazarus regulär installieren. Bei Bedarf den Installationsordner mit `lazbuild.exe` sowie den FPC-Ordner mit `fpc.exe` zum Benutzer-PATH hinzufügen und VS Code neu starten. Die tatsächlichen Ordner hängen von Installation und Architektur ab. Mit `lazbuild --version` und `fpc -iV` prüfen.
+Nach der Lazarus-Installation in PowerShell mit `Get-Command lazbuild,fpc`, `lazbuild --version` und `fpc -iV` prüfen. Falls sie nicht gefunden werden, den Lazarus-Ordner mit `lazbuild.exe` sowie den FPC-Ordner mit `fpc.exe` zum **Benutzer-PATH** hinzufügen und VS Code neu starten. Die tatsächlichen Ordner hängen von Installation und Architektur ab.
 
-Unter Debian/Ubuntu für die Kommandozeile:
-
-```bash
-sudo apt-get update
-sudo apt-get install fp-compiler lcl-utils lazarus-src
-```
-
-Für die grafische Lazarus-IDE zusätzlich das reguläre Lazarus-Paket installieren. Unter macOS die offiziellen Lazarus-/FPC-Pakete und deren Systemvoraussetzungen verwenden.
+**macOS:** Die offiziellen Lazarus-/FPC-Pakete sowie Git, Node.js 24+ und VS Code installieren. Im Terminal sicherstellen, dass `lazbuild` und `fpc` im `PATH` liegen. Die folgenden npm- und Build-Befehle sind dieselben wie unter Windows.
 
 ## Start
 
-Die geplante öffentliche Repository-Adresse lautet wie folgt; solange das separate Repository noch nicht veröffentlicht ist, befindet sich derselbe Starter im Präsentationsrepo unter `demo-projects/ekon30-github-copilot-workshop/`.
+Der Workshop-Starter liegt im öffentlichen Repository `harrybin/ekon30-github-copilot-workshop`.
 
-```bash
+Unter Windows in **PowerShell**:
+
+```powershell
+git clone https://github.com/harrybin/ekon30-github-copilot-workshop.git
+Set-Location .\ekon30-github-copilot-workshop
+npm test
+npm start
+npm run guide
+```
+
+Unter macOS im **Terminal**:
+
+```sh
 git clone https://github.com/harrybin/ekon30-github-copilot-workshop.git
 cd ekon30-github-copilot-workshop
 npm test
@@ -35,6 +40,10 @@ npm run guide
 ```
 
 `npm test` baut das Testprojekt mit `lazbuild` und führt zunächst **14 Verhaltenschecks** aus. `npm start` baut und startet die Pascal-Konsolenanwendung. `npm run guide` startet einen lokalen Server und gibt eine vollständige URL inklusive Zugriffstoken aus. **Diese vollständige URL öffnen**, nicht nur die Portnummer.
+
+## Lizenz
+
+Die MIT-Lizenz in [`LICENSE`](LICENSE) gilt für Harald Binkles eigene Workshoptexte, den Demo-Code und die Copilot-Canvas-Extension. Abhängigkeiten und ausdrücklich gekennzeichnete Drittinhalte behalten ihre jeweiligen Lizenzen.
 
 ## Geführte Durchführung in Copilot Canvas
 
@@ -53,22 +62,27 @@ Canvas und Browser-Fallback bieten:
 
 Ein Checkpoint gilt nur dann als **selbst bestätigt**, wenn alle Kriterien angehakt sind und ein eigener Nachweis eingetragen ist. Das ist keine automatische Build-Prüfung. Bei Speicherfehlern bleiben Eingaben sichtbar; erst nach erfolgreichem Speichern weiterwechseln. Bei Konflikten mit einem zweiten Fenster Notizen kopieren, neu laden und erneut eintragen.
 
-## Workshop-Pfad · 240 Minuten
+## Workshop-Pfad
 
-| Abschnitt | Minuten | Ergebnis |
-|---|---:|---|
-| 0 · Setup | 15 | Lazarus-Build, Tests, Guide |
-| 1 · Completions | 30 | Pascal-Funktion und neue Checks |
-| 2 · Chat mit Kontext | 35 | Verstandenes Verhalten, zusätzlicher Randfall |
-| Pause | 10 | |
-| 3 · Agent Mode | 40 | Track-Zählung mit Tests und Review |
-| 4 · Instructions & Prompts | 35 | Projektregeln und Review-Prompt |
-| Pause | 10 | |
-| 5 · Skills & Custom Agents | 25 | Wiederholbarer Review-Ablauf |
-| 6 · Tools & MCP | 20 | Berechtigungsanalyse; Live-MCP optional |
-| 7 · Capstone | 20 | Eigenes Feature und exportierte Notizen |
+| Abschnitt | Ergebnis |
+|---|---|
+| 0 · Setup | Lazarus-Build, Tests, Guide |
+| 1 · Completions | Pascal-Funktion und neue Checks |
+| 2 · Chat mit Kontext | Verstandenes Verhalten, zusätzlicher Randfall |
+| Pause | |
+| 3 · Agent Mode | Track-Zählung mit Tests und Review |
+| 4 · Instructions & Prompts | Projektregeln und Review-Prompt |
+| Pause | |
+| 5 · Skills & Custom Agents | Wiederholbarer Review-Ablauf |
+| 6 · Tools & MCP | Berechtigungsanalyse; Live-MCP optional |
+| 7 · Capstone | Eigenes Feature und exportierte Notizen |
 
-Die Markdown-Übungen unter [exercises/](exercises/README.md) sind die Quelle des Guides und können vollständig ohne Oberfläche gelesen werden. Instructions und Skills für die Codearbeit entstehen bewusst erst in Übung 4/5.
+Für einen echten, sichtbaren Copilot-Agent-Auftrag mit Review und möglichem
+Pascal-Testlauf gibt es optional `.demo/02-presenter-capstone.json`. Er läuft
+ausschließlich in einem separaten Presenter-Checkout; Anleitung und ehrliche
+Toolchain-Fallbacks stehen in [`.demo/presenter-capstone.md`](.demo/presenter-capstone.md).
+
+Die Markdown-Übungen unter [exercises/](exercises/README.md) sind die Quelle des Guides und können vollständig ohne Oberfläche gelesen werden. Die Projektregeln stehen in der root-`AGENTS.md`; Übung 4 zeigt, wie solche Regeln überprüft und ergänzt werden. Ein projektspezifischer Review-Skill wird erst in Übung 5 erstellt.
 
 ## Projektstruktur und Befehle
 
@@ -77,6 +91,7 @@ CatalogDemo.lpi/.lpr      Lazarus-Konsolenprojekt
 src/                     SessionData und SessionCatalog (Object Pascal)
 tests/CatalogTests.*     Lazarus-Testprojekt, ohne zusätzliche Testbibliothek
 exercises/               Gemeinsame Aufgaben, Prompts, Hinweise und Checkpoints
+AGENTS.md                Gemeinsame Anweisungen für Coding-Agents
 backlog/                 Akzeptanzkriterien für das Agent-Feature
 guide/                   Gemeinsamer Renderer und Browser-Fallback
 .github/extensions/       Projektbezogene Copilot-Canvas-Extension
@@ -84,7 +99,7 @@ scripts/pascal.mjs        plattformübergreifende Lazarus-/FPC-Aufrufe
 .vscode/tasks.json       Guide, Build und Tests
 ```
 
-```bash
+```powershell
 npm run build       # Lazarus-Anwendung bauen
 npm test            # Lazarus-Testprojekt bauen UND starten
 npm run test:fpc    # zusätzlicher direkter FPC-Check im Delphi-Modus

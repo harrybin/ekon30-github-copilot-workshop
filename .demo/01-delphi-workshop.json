@@ -2,12 +2,11 @@
   "$schema": "https://demotime.show/demo-time.schema.json",
   "version": 3,
   "title": "GitHub Copilot für Delphi: Workshop",
-  "description": "Vier Stunden in zehn manuell gestarteten Szenen; keine Datei wird durch Demo Time verändert.",
-  "timer": 240,
+  "description": "Der Workshop in zehn manuell gestarteten Szenen; keine Datei wird durch Demo Time verändert.",
   "scenes": [
     {
       "id": "setup",
-      "title": "0 · Arbeitsplatz vorbereiten (15 Min.)",
+      "title": "0 · Arbeitsplatz vorbereiten",
       "description": "Voraussetzungen und Testlauf gemeinsam prüfen; Teilnehmer arbeiten im eigenen Checkout.",
       "notes": { "path": ".demo/talk-plan.md" },
       "moves": [
@@ -17,7 +16,7 @@
     },
     {
       "id": "completions",
-      "title": "1 · Completions (30 Min.)",
+      "title": "1 · Completions",
       "description": "FormatSessionCaption und zwei Tests selbst mit Inline-Vorschlägen erarbeiten.",
       "notes": { "path": ".demo/talk-plan.md" },
       "moves": [
@@ -28,7 +27,7 @@
     },
     {
       "id": "chat",
-      "title": "2 · Chat mit Kontext (35 Min.)",
+      "title": "2 · Chat mit Kontext",
       "description": "FilterSessions erklären lassen, Aussagen prüfen und genau einen Randfall ergänzen.",
       "notes": { "path": ".demo/talk-plan.md" },
       "moves": [
@@ -39,15 +38,15 @@
     },
     {
       "id": "pause-1",
-      "title": "Pause (10 Min.)",
+      "title": "Pause",
       "description": "Erste Pause nach Übung 2.",
       "moves": [
-        { "action": "showInfoMessage", "message": "10 Minuten Pause. Danach: Agent Mode." }
+        { "action": "showInfoMessage", "message": "Pause. Danach: Agent Mode." }
       ]
     },
     {
       "id": "agent",
-      "title": "3 · Agent Mode (40 Min.)",
+      "title": "3 · Agent Mode",
       "description": "Backlog lesen, erst planen und nach Freigabe umsetzen; Tests und Diff prüfen.",
       "notes": { "path": ".demo/talk-plan.md" },
       "moves": [
@@ -57,8 +56,8 @@
     },
     {
       "id": "instructions",
-      "title": "4 · Instructions und Prompt Files (35 Min.)",
-      "description": "Projektregeln und Review-Prompt bewusst erst jetzt selbst erstellen.",
+      "title": "4 · Instructions und Prompt Files",
+      "description": "Eine zusätzliche Projektregel und ein Review-Prompt erstellen und bewusst vergleichen.",
       "notes": { "path": ".demo/talk-plan.md" },
       "moves": [
         { "action": "open", "path": "src/SessionCatalog.pas" },
@@ -67,15 +66,15 @@
     },
     {
       "id": "pause-2",
-      "title": "Pause (10 Min.)",
+      "title": "Pause",
       "description": "Zweite Pause nach Übung 4.",
       "moves": [
-        { "action": "showInfoMessage", "message": "10 Minuten Pause. Danach: Skills und Custom Agents." }
+        { "action": "showInfoMessage", "message": "Pause. Danach: Skills und Custom Agents." }
       ]
     },
     {
       "id": "skills",
-      "title": "5 · Skills und Custom Agents (25 Min.)",
+      "title": "5 · Skills und Custom Agents",
       "description": "Eine kleine Review-Hilfe erstellen und Skill-Wissen von Agentenrechten abgrenzen.",
       "notes": { "path": ".demo/talk-plan.md" },
       "moves": [
@@ -84,7 +83,7 @@
     },
     {
       "id": "tools",
-      "title": "6 · Tools und MCP (20 Min.)",
+      "title": "6 · Tools und MCP",
       "description": "Lokale Toolrechte und Datenfluss analysieren; Live-MCP ist optional.",
       "notes": { "path": ".demo/talk-plan.md" },
       "moves": [
@@ -93,8 +92,8 @@
     },
     {
       "id": "capstone",
-      "title": "7 · Capstone und Review (20 Min.)",
-      "description": "Ein kleines Track-Filter-Feature planen, prüfen und persönliche Notizen exportieren.",
+      "title": "7 · Capstone und Review",
+      "description": "Die Track-Logik aus Übung 3 mit einem Filter-Feature fortführen, prüfen und persönliche Notizen exportieren.",
       "notes": { "path": ".demo/talk-plan.md" },
       "moves": [
         { "action": "open", "path": "tests/CatalogTests.lpr" },

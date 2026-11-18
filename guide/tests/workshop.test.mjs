@@ -15,7 +15,7 @@ async function temporary(t) {
   return join(directory, 'progress.json')
 }
 
-test('eight Markdown exercises supply all stages, prompts, checks and 220 teaching minutes', () => {
+test('eight Markdown exercises supply all stages, prompts, checks and schedule metadata', () => {
   assert.equal(workshop.exercises.length, 8)
   assert.equal(workshop.exercises.reduce((total, exercise) => total + exercise.minutes, 0), 220)
   assert.ok(workshop.exercises.every((exercise) => exercise.prompt.length > 40 && exercise.checks.length === 3))

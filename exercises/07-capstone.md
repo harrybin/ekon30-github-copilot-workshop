@@ -2,11 +2,11 @@
 
 ## Verstehen
 
-Jetzt kombinieren wir Kontext, begrenzte Delegation und überprüfbare Ergebnisse. Der Guide bestätigt keine Codequalität: Abhaken ist eine persönliche Selbstauskunft.
+Jetzt kombinieren wir Kontext, begrenzte Delegation und überprüfbare Ergebnisse und knüpfen an die Track-Auswertung aus Übung 3 an. Der Guide bestätigt keine Codequalität: Abhaken ist eine persönliche Selbstauskunft.
 
 ## Umsetzen
 
-1. Eine kleine neue Funktion wählen: FilterSessionsByTrack liefert nur exakt passende Tracks und verändert die Eingabe nicht.
+1. Die Track-Logik aus Übung 3 weiterführen: FilterSessionsByTrack liefert nur exakt passende Tracks und verändert die Eingabe nicht.
 2. Instructions und Prompt oder Skill aus den vorigen Übungen gezielt nutzen.
 3. Plan und Tests für mehrere Treffer, keinen Treffer und leere Eingabe vereinbaren.
 4. Implementieren lassen, npm test und npm run build ausführen und den Diff zu zweit reviewen.
