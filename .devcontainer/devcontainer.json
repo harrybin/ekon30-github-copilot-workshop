@@ -1,0 +1,28 @@
+{
+  "name": "GitHub Copilot Delphi Workshop",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24"
+    }
+  },
+  "forwardPorts": [4317],
+  "portsAttributes": {
+    "4317": {
+      "label": "Workshop guide",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "alefragnani.pascal",
+        "eliostruyf.vscode-demo-time"
+      ]
+    }
+  }
+}
