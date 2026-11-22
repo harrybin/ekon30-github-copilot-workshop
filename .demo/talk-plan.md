@@ -10,7 +10,8 @@ nicht.
 
 ## Vorbereitung und sicherer Neustart
 
-1. Einen **separaten Demo-Checkout** des Repositorys verwenden und als eigenen
+1. Über **Terminal → Run Task → Workshop: Demo-Checkout initialisieren** einen
+   **separaten Demo-Checkout** erzeugen und den ausgegebenen Ordner als eigenen
    VS-Code-Ordner öffnen. Teilnehmende verwenden ihre eigenen Checkouts. Niemals
    den Checkout oder `.workshop/progress.json` einer anderen Person zurücksetzen.
 2. **Windows ist der Standard:** Node.js, Lazarus/FPC, Git und VS Code mit
@@ -21,12 +22,12 @@ nicht.
    ausgegebene URL öffnen. Persönliche Fortschrittsdaten dieses Checkouts
    bleiben lokal und sind keine automatischen Testnachweise.
 3. Vor einer Wiederholung den bisherigen Demo-Checkout einschließlich
-   `.workshop/progress.json` sichern oder aufbewahren. Einen **neuen separaten
-   Checkout** von einer Version anlegen, die sowohl den unveränderten Starter
-   als auch dieses `.demo`-Verzeichnis enthält, und dort Demo Time neu öffnen.
+   `.workshop/progress.json` aufbewahren. In diesem Checkout den Task
+   **Workshop: Demo neu beginnen** ausführen und den ausgegebenen neuen
+   Checkout öffnen. Er verwendet den beim Initialisieren gemerkten Commit.
    Die Version vorher kontrollieren: Ein älterer Starter ohne `.demo` enthält
    den Act nicht.
-   Keine automatische Wiederherstellung, kein Überschreiben und keine
+   Kein Überschreiben und keine
    Löschbefehle: Die Szenen öffnen nur vorhandene Dateien bzw. zeigen eine
    Pausenmeldung. In Übung 3 einen neuen, noch nicht existierenden
    Feature-Branch wählen, falls der vorgeschlagene Name schon vergeben ist.

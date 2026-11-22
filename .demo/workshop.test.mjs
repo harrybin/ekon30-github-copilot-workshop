@@ -1,5 +1,10 @@
 import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 
 const root = new URL("../", import.meta.url);
@@ -61,4 +66,43 @@ test("the presenter act is a separate, manual Copilot demo with no progress or c
   assert.ok(openedPaths.has("src/SessionCatalog.pas"));
   assert.ok(openedPaths.has("tests/CatalogTests.lpr"));
   assert.ok(openedPaths.has("exercises/07-capstone.md"));
+});
+
+test("demo initialization and reset preserve existing work and restore the recorded commit", () => {
+  const temp = mkdtempSync(join(tmpdir(), "workshop-demo-test-"));
+  const source = join(temp, "source");
+  const script = fileURLToPath(new URL("scripts/demo-copy.mjs", root));
+  const run = (cwd, command, args, expected = 0) => {
+    const result = spawnSync(command, args, { cwd, encoding: "utf8" });
+    assert.equal(result.status, expected, result.stderr || result.stdout);
+    return result.stdout;
+  };
+  try {
+    mkdirSync(source);
+    run(source, "git", ["init", "-q"]);
+    writeFileSync(join(source, "starter.txt"), "starter\n");
+    run(source, "git", ["add", "starter.txt"]);
+    run(source, "git", ["-c", "user.name=Test", "-c", "user.email=test@example.invalid", "commit", "-qm", "starter"]);
+    writeFileSync(join(source, "starter.txt"), "source work\n");
+    mkdirSync(join(source, ".workshop"));
+    writeFileSync(join(source, ".workshop", "progress.json"), "source progress\n");
+    run(source, process.execPath, [script, "reset"], 1);
+    const first = run(source, process.execPath, [script, "init"]).match(/Open this folder in VS Code: (.+)/)[1].trim();
+    assert.equal(readFileSync(join(first, "starter.txt"), "utf8").replace(/\r\n/g, "\n"), "starter\n");
+    assert.equal(readFileSync(join(source, "starter.txt"), "utf8"), "source work\n");
+    assert.equal(readFileSync(join(source, ".workshop", "progress.json"), "utf8"), "source progress\n");
+
+    writeFileSync(join(first, "starter.txt"), "committed demo work\n");
+    run(first, "git", ["add", "starter.txt"]);
+    run(first, "git", ["-c", "user.name=Test", "-c", "user.email=test@example.invalid", "commit", "-qm", "demo work"]);
+    writeFileSync(join(first, "starter.txt"), "uncommitted demo work\n");
+    writeFileSync(join(first, ".workshop", "progress.json"), "demo progress\n");
+    const second = run(first, process.execPath, [script, "reset"]).match(/Open this folder in VS Code: (.+)/)[1].trim();
+    assert.notEqual(first, second);
+    assert.equal(readFileSync(join(second, "starter.txt"), "utf8").replace(/\r\n/g, "\n"), "starter\n");
+    assert.equal(readFileSync(join(first, "starter.txt"), "utf8"), "uncommitted demo work\n");
+    assert.equal(readFileSync(join(first, ".workshop", "progress.json"), "utf8"), "demo progress\n");
+  } finally {
+    rmSync(temp, { recursive: true, force: true });
+  }
 });

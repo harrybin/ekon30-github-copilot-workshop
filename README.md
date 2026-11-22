@@ -47,7 +47,37 @@ npm start
 npm run guide
 ```
 
-`npm test` baut das Testprojekt mit `lazbuild` und führt zunächst **14 Verhaltenschecks** aus. `npm start` baut und startet die Pascal-Konsolenanwendung. `npm run guide` startet einen lokalen Server und gibt eine vollständige URL inklusive Zugriffstoken aus. **Diese vollständige URL öffnen**, nicht nur die Portnummer.
+`npm test` baut das Testprojekt mit `lazbuild` und führt zunächst **14 Verhaltenschecks** aus. `npm start` baut und startet die Pascal-Konsolenanwendung. `npm run guide` startet einen lokalen Server und gibt eine vollständige URL inklusive Zugriffstoken aus. **Diese vollständige URL öffnen**, nicht nur die Portnummer. Es ist kein `npm install` nötig.
+
+### VS-Code-Tasks und Demo ohne Demo Time
+
+Das Repository in VS Code öffnen und über **Terminal → Run Task** die
+`Workshop:`-Tasks auswählen. Die Übungen unter `exercises/` und die
+Reihenfolge in [`.demo/talk-plan.md`](.demo/talk-plan.md) funktionieren auch
+ohne Demo-Time-Erweiterung. Der Guide ist optional.
+
+Für eine Vorführung einmal **Workshop: Demo-Checkout initialisieren** ausführen
+und den im Terminal ausgegebenen neuen Ordner in einem separaten VS-Code-Fenster
+öffnen. Dieser frische Checkout enthält genau den zuletzt committeten Stand
+des geöffneten Repositorys, keine uncommitteten Änderungen und keinen
+persönlichen Fortschritt. Der übergeordnete Ordner muss beschreibbar sein; Git
+und Node müssen im PATH liegen. Für einen Neustart im Demo-Checkout
+**Workshop: Demo neu beginnen** ausführen und den neu ausgegebenen Ordner
+öffnen. Dieser enthält wieder den beim Initialisieren gemerkten Commit, auch
+wenn im Demo-Checkout später committet wurde. Alte Checkouts und Fortschritt
+bleiben unverändert erhalten. Der Reset funktioniert nur in einem so
+initialisierten Demo-Checkout; für einen anderen Ausgangsstand erneut
+initialisieren. Prüfen, ob ein uncommitteter Stand vorher gesichert bzw.
+committet werden soll.
+
+Die Tasks **Guide starten**, **Anwendung starten**, **Pascal-Tests**,
+**Lazarus-Build**, **FPC-Tests**, **Guide-Tests** und **Demo-Time-Tests**
+entsprechen den dokumentierten Terminalbefehlen. **Feature-Branch anlegen**
+fragt nach einem neuen Namen; **Git-Status**, **Git-Diff** und **Git-Diff
+prüfen** unterstützen das Review. **FPC-Version** und **Lazarus-Version**
+prüfen die Compiler-Voraussetzungen. Ein bereits existierender Branch wird
+nicht überschrieben. Den Guide-Task nach Gebrauch im Terminal beenden; seine
+URL enthält ein Zugriffstoken und darf nicht weitergegeben werden.
 
 ## Lizenz
 
@@ -105,7 +135,8 @@ backlog/                 Akzeptanzkriterien für das Agent-Feature
 guide/                   Gemeinsamer Renderer und Browser-Fallback
 .github/extensions/       Projektbezogene Copilot-Canvas-Extension
 scripts/pascal.mjs        plattformübergreifende Lazarus-/FPC-Aufrufe
-.vscode/tasks.json       Guide, Build und Tests
+scripts/demo-copy.mjs    Isolierten Demo-Checkout erstellen bzw. neu beginnen
+.vscode/tasks.json       Demo-Start, Wiederholung, Guide, Build und Tests
 ```
 
 ```powershell
