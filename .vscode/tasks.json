@@ -2,10 +2,34 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Workshop: Demo-Checkout initialisieren",
+      "type": "process",
+      "command": "node",
+      "args": ["scripts/demo-copy.mjs", "init"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Demo neu beginnen",
+      "type": "process",
+      "command": "node",
+      "args": ["scripts/demo-copy.mjs", "reset"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
       "label": "Workshop: Guide starten",
       "type": "process",
       "command": "node",
       "args": ["guide/server.mjs"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Anwendung starten",
+      "type": "process",
+      "command": "node",
+      "args": ["scripts/pascal.mjs", "run"],
       "options": { "cwd": "${workspaceFolder}" },
       "problemMatcher": []
     },
@@ -26,6 +50,86 @@
       "options": { "cwd": "${workspaceFolder}" },
       "group": { "kind": "build", "isDefault": true },
       "problemMatcher": []
+    },
+    {
+      "label": "Workshop: FPC-Tests",
+      "type": "process",
+      "command": "node",
+      "args": ["scripts/pascal.mjs", "test", "--fpc"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Guide-Tests",
+      "type": "process",
+      "command": "node",
+      "args": ["--test", "guide/tests/*.test.mjs"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Demo-Time-Tests",
+      "type": "process",
+      "command": "node",
+      "args": ["--test", ".demo/workshop.test.mjs"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Feature-Branch anlegen",
+      "type": "process",
+      "command": "git",
+      "args": ["switch", "-c", "${input:workshopBranch}"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Git-Status",
+      "type": "process",
+      "command": "git",
+      "args": ["status", "--short"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Git-Diff",
+      "type": "process",
+      "command": "git",
+      "args": ["--no-pager", "diff"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Git-Diff prüfen",
+      "type": "process",
+      "command": "git",
+      "args": ["diff", "--check"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: FPC-Version",
+      "type": "process",
+      "command": "fpc",
+      "args": ["-iV"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Lazarus-Version",
+      "type": "process",
+      "command": "lazbuild",
+      "args": ["--version"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "workshopBranch",
+      "type": "promptString",
+      "description": "Neuer Feature-Branch (bestehende Branches werden nicht überschrieben)",
+      "default": "exercise/track-counts"
     }
   ]
 }
