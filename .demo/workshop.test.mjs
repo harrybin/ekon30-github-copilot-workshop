@@ -10,6 +10,16 @@ import { test } from "node:test";
 const root = new URL("../", import.meta.url);
 const readJson = async (path) => JSON.parse(await readFile(new URL(path, root), "utf8"));
 
+test("workspace and dev container recommend Copilot Chat without the deprecated extension", async () => {
+  const workspace = await readJson(".vscode/extensions.json");
+  const container = await readJson(".devcontainer/devcontainer.json");
+  const normalize = (ids) => ids.map((id) => id.toLowerCase()).sort();
+  const recommendations = normalize(workspace.recommendations);
+  assert.deepEqual(normalize(container.customizations.vscode.extensions), recommendations);
+  assert.ok(recommendations.includes("github.copilot-chat"));
+  assert.ok(!recommendations.includes("github.copilot"));
+});
+
 test("the act follows all workshop exercises and both breaks without writing files", async () => {
   const act = await readJson(".demo/01-delphi-workshop.json");
   const workshop = await readJson("guide/workshop.json");
@@ -48,7 +58,7 @@ test("the presenter act is a separate, manual Copilot demo with no progress or c
   assert.match(normalizedPlan, /separaten Presenter-Checkout/i);
   assert.match(normalizedPlan, /weder eine vorgefertigte Copilot-Antwort/i);
   assert.match(normalizedPlan, /Copilot nicht angemeldet, nicht verfügbar/i);
-  assert.match(normalizedPlan, /GitHub\.copilot/);
+  assert.match(normalizedPlan, /GitHub\.copilot-chat/);
   assert.match(normalizedPlan, /npm run test:fpc/);
 
   const openedPaths = new Set();

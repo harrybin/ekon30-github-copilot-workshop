@@ -12,7 +12,7 @@ Die interaktive Workshop-Führung übernimmt das Lernprinzip von [Copilot Govern
 - Code Completion üben wir in VS Code. Die Copilot App ersetzt dafür keinen Editor.
 
 Die Workspace-Empfehlungen in `.vscode/extensions.json` zeigen in VS Code
-Copilot, Copilot Chat, Pascal-Unterstützung, Demo Time und Dev Containers an.
+GitHub Copilot Chat, Pascal-Unterstützung, Demo Time und Dev Containers an.
 Über **Extensions → Recommended** können sie installiert werden; Demo Time
 und Dev Containers sind nur für die jeweiligen optionalen Abläufe nötig.
 Die Empfehlungen installieren keine Erweiterungen oder Compiler automatisch.
