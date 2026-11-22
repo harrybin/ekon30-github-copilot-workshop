@@ -20,7 +20,7 @@ keine uncommitteten Änderungen oder Fortschrittsdaten. Im neuen Fenster über
 Git-Status**, **FPC-Version** und **Lazarus-Version** prüfen den Ausgangszustand
 und die Toolchain.
 
-In der Extensions-Ansicht prüfen, ob GitHub.copilot und, falls gewünscht, Demo
+In der Extensions-Ansicht prüfen, ob GitHub.copilot-chat und, falls gewünscht, Demo
 Time im verwendeten Profil verfügbar sind. Danach Copilot Chat öffnen und die Anmeldung prüfen.
 Fehlt GitHub Copilot, die Erweiterung nicht als Teil der Demo installieren;
 stattdessen den Copilot-Fallback verwenden. Den Act
