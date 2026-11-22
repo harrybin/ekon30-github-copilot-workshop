@@ -21,7 +21,8 @@
         "GitHub.copilot",
         "GitHub.copilot-chat",
         "alefragnani.pascal",
-        "eliostruyf.vscode-demo-time"
+        "eliostruyf.vscode-demo-time",
+        "ms-vscode-remote.remote-containers"
       ]
     }
   }

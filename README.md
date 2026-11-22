@@ -11,6 +11,13 @@ Die interaktive Workshop-Führung übernimmt das Lernprinzip von [Copilot Govern
 - VS Code mit angemeldetem GitHub Copilot; alternativ für Chat-/Agent-Übungen die GitHub Copilot App mit einem **lokalen** Checkout.
 - Code Completion üben wir in VS Code. Die Copilot App ersetzt dafür keinen Editor.
 
+Die Workspace-Empfehlungen in `.vscode/extensions.json` zeigen in VS Code
+Copilot, Copilot Chat, Pascal-Unterstützung, Demo Time und Dev Containers an.
+Über **Extensions → Recommended** können sie installiert werden; Demo Time
+und Dev Containers sind nur für die jeweiligen optionalen Abläufe nötig.
+Die Empfehlungen installieren keine Erweiterungen oder Compiler automatisch.
+Auch die per Demo-Task erzeugten Checkouts enthalten diese Empfehlungen.
+
 Nach der Lazarus-Installation in PowerShell mit `Get-Command lazbuild,fpc`, `lazbuild --version` und `fpc -iV` prüfen. Falls sie nicht gefunden werden, den Lazarus-Ordner mit `lazbuild.exe` sowie den FPC-Ordner mit `fpc.exe` zum **Benutzer-PATH** hinzufügen und VS Code neu starten. Die tatsächlichen Ordner hängen von Installation und Architektur ab.
 
 **macOS:** Die offiziellen Lazarus-/FPC-Pakete sowie Git, Node.js 24+ und VS Code installieren. Im Terminal sicherstellen, dass `lazbuild` und `fpc` im `PATH` liegen. Die folgenden npm- und Build-Befehle sind dieselben wie unter Windows.
